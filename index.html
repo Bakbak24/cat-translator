@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Translator</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <p>Click the microphone button, say 'meow' in your best cat language</p>
     <div id="translate-boxes">
         <div class="translate-box">
             <div class="language-options">Cat</div>
             <textarea name="input-cat-lang" id="inpCat" cols="30" rows="10"></textarea>
+            <div id="translate-icons">
+                <span class="material-symbols-outlined">
+                    mic
+                </span>
+                <div id="right-icons">
+                    <span id="letters">0 / 5.000</span>
+                    <span class="material-symbols-outlined">
+                        keyboard
+                    </span>
+                    <span class="material-symbols-outlined">
+                        arrow_drop_down
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="translate-box">
             <div class="language-options">English</div>
+            <div class="language-options">Dutch</div>
+            <div class="language-options">French</div>
             <textarea name="input-en-lang" id="inpEn" cols="30" rows="10" placeholder="Vertaling"></textarea>
         </div>
     </div>
 </body>
+
 </html>
