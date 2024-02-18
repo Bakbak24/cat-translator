@@ -153,3 +153,19 @@ header{
     background-repeat: no-repeat;
     background-position: center left 2%;
 }
+@media only screen and (max-width:600px){
+    .translate-box {
+        width: 328px;
+    }
+    #right-icons{
+        width: 35%;
+    }
+}
+@media only screen and (max-width:360px){
+    .translate-box {
+        width: 280px;
+    }
+    #right-icons{
+        width: 40%;
+    }
+}
