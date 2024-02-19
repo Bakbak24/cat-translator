@@ -94,6 +94,7 @@ textarea::placeholder {
 
 .material-symbols-outlined {
     color: #c0c0c9;
+    cursor: pointer ;
     font-variation-settings:
         'FILL' 0,
         'wght' 400,
@@ -143,6 +144,11 @@ textarea::placeholder {
 #letters {
     color: gray;
     font-size: 12px;
+}
+#mic:hover {
+    color: #1A73E8;
+    cursor: pointer;
+    transition: all 0.1s;
 }
 header{
     height: 64px;

@@ -1,6 +1,12 @@
 let catTranslator = document.querySelector('#inpCat');
 let engTranslator = document.querySelector('#inpEn');
 let letterCount = document.querySelector('#letters');
+let mic = document.querySelector("#mic");
+
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+
+const recognition = new SpeechRecognition();
+recognition.lang = 'en-US';
 
 let count = 0;
 letterCount.textContent = count + ' / 5000';
@@ -17,9 +23,9 @@ catTranslator.addEventListener('keyup', (event) => {
     if (catInput.length >= 100) {
         engTranslator.style.fontSize = '18px';
         catTranslator.style.fontSize = '18px';
-        catTranslator.style.height = textareaHeight+50+ 'px';
+        catTranslator.style.height = textareaHeight + 50 + 'px';
     }
-    else{
+    else {
         engTranslator.style.fontSize = '21px';
         catTranslator.style.fontSize = '21px';
         catTranslator.style.height = textareaHeight + 'px';
@@ -30,7 +36,7 @@ catTranslator.addEventListener('keyup', (event) => {
         if (catInput.length === 0) {
             engTranslator.value = 'Translation';
         }
-        else{
+        else {
             if (/^[a-zA-Z]*$/.test(catInput)) {
                 if (/^mea*u*o*w+$/i.test(catInput)) {
                     randomCatTranslations();
@@ -44,10 +50,23 @@ catTranslator.addEventListener('keyup', (event) => {
     }, 1000);
 });
 
+recognition.onresult = function (event) {
+    let result = event.results[0][0].transcript;
+    catTranslator.value = result;
+    mic.style.color = '#c0c0c9';
+    mic.disabled = true;
+    catTranslator.dispatchEvent(new Event('keyup'));
+}
+mic.addEventListener("click", function () {
+    recognition.start();
+    mic.style.color = '#1A73E8';
+    mic.disabled = false;
+});
 function randomCatTranslations() {
     let randomTranslation = Math.floor(Math.random() * catTranslations.length);
     engTranslator.value = catTranslations[randomTranslation];
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     catTranslator.value = '';
     engTranslator.value = '';
